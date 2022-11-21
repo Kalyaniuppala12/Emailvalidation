@@ -1,0 +1,92 @@
+<!DOCTYPE html5>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="index.css" rel="Stylesheet">
+    <title>Contact Us form</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form">
+            <div class="input-fields">
+                <form>
+              <label>Firstname</label>
+              <input type="text" class="input form-control" placeholder="Firstname" pattern="[[a-zA-Z]]" title="please Enter Alphabets" tabindex="4" required >
+              <label>Lastname</label>
+              <input type="text" class="input form-control" placeholder="Lastname"  pattern="[[a-zA-Z]]" title="please Enter Alphabets" required>
+              <label>Email adress</label>
+              <input type="email"  class="input form-control" placeholder="Email Adress" required>
+              <label>Contact number</label>
+              <input type="number"  class="input form-control" placeholder="Contact number" pattern="[{0-10}]"  required>
+              <label>Adress</label>
+              <input type="street"  class="form-control"  id="inputStreet"  placeholder="Street" title="please Enter the street" required>
+              <input type="Locality"  class="form-control"  id="inputlocal"  placeholder="Locality" title="please Enter the lOCALITY" required>
+              <input type="city"  class="form-control" id="inputCity" placeholder="City" title="please Enter the city" required>
+              <input type="state"  class="form-control"  id="inputState"  placeholder="State" title="please Enter the state" required>
+             <input type="zip"  class="form-control"  id="inputZip"  placeholder="Zip" title="please Enter the postalcode" required>
+             <select type="District"  class="form-control"  id="inputDistrict"  placeholder="District" title="please Enter the District" required>
+            <option value="Telangana">Telangana</option>
+            <option value="Ananthapuramu">Ananthapuramu</option>
+            <option value="Bapatla">Bapatla</option>
+            <option value="Nalgonda">Nalgonda</option>
+            <option value="Eluru">Eluru</option>
+            <option value="Alappuzha">Alappuzha</option>
+            <option value="Idukki">Idukki</option>
+            <option value="Kollam">Kollam</option>
+            </select>
+            <select id="inputCountry" name="list" form="countryform" placeholder="Country" title="please Enter the Country" required>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="England">England</option>
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Canada">Canada</option>
+            <option value="Cuba">Cuba</option>
+            <option value="Peru">Peru</option>
+            <option value="Qatar">Qatar</option>
+            </select>
+              <label>Subject</label>
+              <input type="text" class="input"  placeholder="Subject"  title="Please Enter the subject"  required>
+              <label for="myfile">Select a file to upload</label><br>
+              <input type="file" id="myfile" name="myfile" title="please choose the file" required>
+              <textarea placeholder="Message" rows="4" title="please comment" required></textarea>
+              <button type="submit" class="btn">submit</button>
+            </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+
+      fetch('http://ec2-3-22-57-145.us-east-2.compute.amazonaws.com/api-contact-us/',{
+           // method:'POST',
+           // headers :{
+           //     'Content-Type':'application/json;charset=utf-8'
+          //  },
+           // body:JSON.stringify(todo)
+           Method: 'POST',
+	Body:
+{
+    "first_name": "kalyani",
+    "last_name": "uppala",
+    "email_address": "kalyani@gmail.com",
+    "contact_number": "8096899883",
+    "street_name": "miyapur",
+    "locality": "Indian",
+    "pin_code": 500049, 
+    "district": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "subject": "hello",
+    "message": "adhgj",
+    "file_name": "abc"
+}
+      })
+
+     .then(response=>console.log(response));
+    </script>
+</body>
+</html>

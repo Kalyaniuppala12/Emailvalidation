@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Robato',sans-serif;
+}
+
+body{
+    background-color:#fff;
+   }
+.wrapper{
+   margin: 3rem 0;
+    width: 100%;
+    padding:0px  2rem;
+}
+.form{
+    background-color: #2f5fa8;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    padding: 30px;
+    border-radius: 5px;
+    display: flex;
+    box-shadow:0 0 10px rgba(0, 0, 0, 0.13);
+}
+
+.input-fields{
+    display: flex;
+    flex-direction: column;
+    margin-right: 4%;
+    width: 100%;
+    color:#fff;
+}
+
+.input-fields textarea{
+    width: 100%;
+    margin: 20px 0;
+    background: #fff;
+    width: 100%;
+    padding: 15px;
+    border: none;
+}
+
+ .input{
+    margin: 10px 0;
+    background: #fff;
+    padding: 10px;
+    border:none;
+    width: 100%;
+}
+.btn{
+    cursor: pointer;
+    color: #fff;
+    background-color: #ffb619;
+    padding: 10px;
+    border: 1px solid #ffb619;
+    text-transform: uppercase;
+}
+
+#inputStreet {
+    width: 100%;
+    border: none;
+    background: #fff;
+    margin: 10px 0;
+    padding: 10px;;
+  }
+  
+  #inputCity {
+    width: 50%;
+    border: none;
+    background: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    
+  }
+  
+  #inputState {
+    width: 19%;
+    border: none;
+    background: #fff;
+    margin: 10px 0;
+    padding: 10px;;
+  }
+  #inputlocal{
+    width: 48%;
+    border: none;
+    background: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    
+  }
+  #inputZip {
+    width: 30%;
+    border: none;
+    background: #fff;
+    margin: 10px 0;
+    padding: 10px;;
+  }
+  
+  #inputDistrict {
+    width: 48%;
+    border: none;
+    background: #fff;
+    margin: 10px 0;
+    padding: 10px;;
+  }
+  
+  #inputCountry {
+    width: 100%;
+    border: none;
+    background: #fff;
+    margin: 10px 0;
+    padding: 10px;;
+  }
+ .input :required{
+    color: red;
+ }
+  
