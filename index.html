@@ -1,100 +1,64 @@
-<!DOCTYPE html5>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="index.css" rel="Stylesheet">
-    <title>Contact Us form</title>
+    <link  rel="stylesheet" href="index.css">
+    <title>Document</title>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="form">
-            <div class="input-fields">
-                <form id="form" method="post">
-              <label>Firstname</label>
-              <input type="text" class="input form-control" placeholder="Firstname" pattern="[[a-zA-Z]]" title="please Enter Alphabets" tabindex="4" required >
-              <label>Lastname</label>
-              <input type="text" class="input form-control" placeholder="Lastname"  pattern="[[a-zA-Z]]" title="please Enter Alphabets" required>
-              <label>Email adress</label>
-              <input type="email"  class="input form-control" placeholder="Email Adress" required>
-              <label>Contact number</label>
-              <input type="number"  class="input form-control" placeholder="Contact number" pattern="[{0-10}]"  required>
-              <label>Adress</label>
-              <input type="street"  class="form-control"  id="inputStreet"  placeholder="Street" title="please Enter the street" required>
-              <input type="Locality"  class="form-control"  id="inputlocal"  placeholder="Locality" title="please Enter the lOCALITY" required>
-              <input type="city"  class="form-control" id="inputCity" placeholder="City" title="please Enter the city" required>
-              <input type="state"  class="form-control"  id="inputState"  placeholder="State" title="please Enter the state" required>
-             <input type="zip"  class="form-control"  id="inputZip"  placeholder="Zip" title="please Enter the postalcode" required>
-             <select type="District"  class="form-control"  id="inputDistrict"  placeholder="District" title="please Enter the District" required>
-            <option value="Telangana">Telangana</option>
-            <option value="Ananthapuramu">Ananthapuramu</option>
-            <option value="Bapatla">Bapatla</option>
-            <option value="Nalgonda">Nalgonda</option>
-            <option value="Eluru">Eluru</option>
-            <option value="Alappuzha">Alappuzha</option>
-            <option value="Idukki">Idukki</option>
-            <option value="Kollam">Kollam</option>
-            </select>
-            <select id="inputCountry" name="list" form="countryform" placeholder="Country" title="please Enter the Country" required>
-            <option value="India">India</option>
-            <option value="USA">USA</option>
-            <option value="England">England</option>
-            <option value="Afghanistan">Afghanistan</option>
-            <option value="Canada">Canada</option>
-            <option value="Cuba">Cuba</option>
-            <option value="Peru">Peru</option>
-            <option value="Qatar">Qatar</option>
-            </select>
-              <label>Subject</label>
-              <input type="text" class="input"  placeholder="Subject"  title="Please Enter the subject"  required>
-              <label for="myfile">Select a file to upload</label><br>
-              <input type="file" id="myfile" name="myfile" title="please choose the file" required>
-              <textarea placeholder="Message" rows="4" title="please comment" required></textarea>
-              <button type="submit" class="btn">submit</button>
-            </form>
-            </div>
-        </div>
-    </div>
 
+<h5 style="text-align:center;">The response of the server to submitting the form is printed in the console</h5>
+<div class="wrapper">
+    <div class="container">
+        <div class="input-fields">
+<form id="form">
+    <label>Firstname</label>
+<input name="Firstname"  class="input" type="text" placeholder="fname" required>
+<label>Lastname</label>
+<input name="Lastname" class="input" type="text" placeholder="lname" required>
+<label>Email</label>
+<input name="Email" class="input" type="text" placeholder="Email" required>
+ <label>Contact number</label>
+<input name="contact" class="input" type="number" placeholder="mobilenumber" required>
+<label>Adress</label>
+<input name="street"  class="input" type="text" placeholder="streetname" required>
+<input name="locality"type="text" class="input" placeholder="locality" required>
+<input name="pin"type="text" class="input" placeholder="pincode" required>
+<input name="distict"type="text"  class="input" placeholder="district" required>
+<input name="state"type="text" class="input" placeholder="state" required>
+<input name="country"type="text" class="input" placeholder="country" required>
+<label>subject</label>
+<input name="subject"type="text" class="input" placeholder="subject" required>
+<label>Message</label>
+<label for="myfile">Select a file to upload</label><br>
+<input type="file" id="myfile" name="myfile" title="please choose the file" required>
+<textarea placeholder="Message" rows="4" title="please comment" required></textarea>
+<button type="submit" class="btn">Submit</button>
+</form> 
+</div>
+</div>
+</div>
+<script>
+(function() {
+const form = document.getElementById('form');
+form.addEventListener('submit', function(e) {
 
-    <script>
+e.preventDefault();
 
+const payload = new FormData(form);
 
-      fetch("http://ec2-3-22-57-145.us-east-2.compute.amazonaws.com/api-contact-us/",{
-           // method:'POST',
-           // headers :{
-           //     'Content-Type':'application/json;charset=utf-8'
-          //  },
-           // body:JSON.stringify(todo)
-           method: 'POST',
-	body:JSON.stringify({
-    first_name: "kalyani",
-    last_name: "uppala",
-    email_address: "kalyani@gmail.com",
-    contact_number: "8096899883",
-    street_name: "miyapur",
-    locality: "Indian",
-    pin_code: "500049", 
-    district: "Hyderabad",
-    state: "Telangana",
-    country: "India",
-    subject: "hello",
-    message: "adhgj",
-    file_name: "abc"
-}),
-headers: {
-           "Content-Type": "application/json; charset=UTF-8"
-        },
-      })
-
-     .then(function(response){
-         return response
-     })
-   
-     .then(function(data){
-        console.log(data)
-     })
-    </script>
+fetch('https://httpbin.org/post', {
+method: 'POST',
+body: payload,
+})
+.then(res => res.json())
+.then(data => console.log(data))
+})
+})()
+</script>
+  
 </body>
 </html>
