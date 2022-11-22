@@ -11,7 +11,7 @@
     <div class="wrapper">
         <div class="form">
             <div class="input-fields">
-                <form>
+                <form id="form" method="post">
               <label>Firstname</label>
               <input type="text" class="input form-control" placeholder="Firstname" pattern="[[a-zA-Z]]" title="please Enter Alphabets" tabindex="4" required >
               <label>Lastname</label>
@@ -61,32 +61,40 @@
     <script>
 
 
-      fetch('http://ec2-3-22-57-145.us-east-2.compute.amazonaws.com/api-contact-us/',{
+      fetch("http://ec2-3-22-57-145.us-east-2.compute.amazonaws.com/api-contact-us/",{
            // method:'POST',
            // headers :{
            //     'Content-Type':'application/json;charset=utf-8'
           //  },
            // body:JSON.stringify(todo)
-           Method: 'POST',
-	Body:
-{
-    "first_name": "kalyani",
-    "last_name": "uppala",
-    "email_address": "kalyani@gmail.com",
-    "contact_number": "8096899883",
-    "street_name": "miyapur",
-    "locality": "Indian",
-    "pin_code": 500049, 
-    "district": "Hyderabad",
-    "state": "Telangana",
-    "country": "India",
-    "subject": "hello",
-    "message": "adhgj",
-    "file_name": "abc"
-}
+           method: 'POST',
+	body:JSON.stringify({
+    first_name: "kalyani",
+    last_name: "uppala",
+    email_address: "kalyani@gmail.com",
+    contact_number: "8096899883",
+    street_name: "miyapur",
+    locality: "Indian",
+    pin_code: "500049", 
+    district: "Hyderabad",
+    state: "Telangana",
+    country: "India",
+    subject: "hello",
+    message: "adhgj",
+    file_name: "abc"
+}),
+headers: {
+           "Content-Type": "application/json; charset=UTF-8"
+        },
       })
 
-     .then(response=>console.log(response));
+     .then(function(response){
+         return response
+     })
+   
+     .then(function(data){
+        console.log(data)
+     })
     </script>
 </body>
 </html>
